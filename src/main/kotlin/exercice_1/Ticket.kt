@@ -2,17 +2,19 @@ package exercice_1
 
 import java.time.LocalDateTime
 
-class Ticket(immatriculation: String) {
+class Ticket(val immatriculation: String, val horloge: LocalDateTime) {
 
-    var dateInterne : LocalDateTime? = null
+    var dateInterne: LocalDateTime? = null
 
-    val horodatage : LocalDateTime?
+
+    val horodatage: LocalDateTime?
         get() {
             return dateInterne
         }
 
     fun imprime() {
-        dateInterne = LocalDateTime.now()
+//        dateInterne = LocalDateTime.now()
+        dateInterne = horloge
     }
 
 }
