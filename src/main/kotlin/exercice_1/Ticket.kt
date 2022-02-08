@@ -53,3 +53,17 @@ class Ticket3(val immatriculation: String) {
         horlogeExterne = StubHorloge()
     }
 }
+
+class Ticket4(val immatriculation: String,
+               val horlogeExterne: Horloge = HorlogeExterne()
+) {
+    var dateInterne: LocalDateTime? = null
+    val horodatage: LocalDateTime?
+        get() {
+            return dateInterne
+        }
+
+    fun imprime() {
+        dateInterne = horlogeExterne.now()
+    }
+}

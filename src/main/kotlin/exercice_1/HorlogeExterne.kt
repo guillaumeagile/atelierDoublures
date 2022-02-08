@@ -15,6 +15,6 @@ interface Horloge {
 class StubHorloge : Horloge
 {
     override fun now(): LocalDateTime {
-        TODO("Not yet implemented")
+      return LocalDateTime.MAX
     }
 }

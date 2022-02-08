@@ -61,17 +61,17 @@ class TestThatTicketParking : StringSpec({
     // ce qui change, c'est la facon de retourner le temps: il faut un temps de test, et un temps de prod
 
 
-//    "Maitrisons le temps" {
-//        // Arrange
-//        val ticket = Ticket(immatriculation = "AA-000-XX", horloge = HorlogeFixe())
-//
-//        // Act
-//        ticket.imprime() // Ici le temps est probablement calculé quelque au sein de cette méthode
-//        // Et si nous pouvions être les maitres du temps ?
-//
-//        // Assert
-//        ticket.horodatage shouldBe LocalDateTime.now()
-//    }
+    "Maitrisons le temps" {
+        // Arrange
+        val ticket = Ticket4(immatriculation = "AA-000-XX", horlogeExterne = StubHorloge() )
+
+        // Act
+        ticket.imprime() // Ici le temps est  uniquement obtenu au sein de cette méthode
+        // nous sommes les maitres du temps dans le Stub
+
+        // Assert
+        ticket.horodatage shouldBe StubHorloge().now()
+    }
 
 
 })
