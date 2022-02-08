@@ -46,13 +46,10 @@ class Ticket3(val immatriculation: String) {
         }
 
     fun imprime() {
-        //   if (estEnCoursDeTest)
-        dateInterne = horlogeExterne!!.now()   // LocalDateTime.MIN
-        // else
-        //    dateInterne = LocalDateTime.now()
+        dateInterne = horlogeExterne.now()
     }
 
     fun environementDeTest() {
-            horlogeExterne = StubHorloge()
+        horlogeExterne = StubHorloge()
     }
 }
