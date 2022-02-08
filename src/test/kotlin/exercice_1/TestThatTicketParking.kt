@@ -95,6 +95,11 @@ class TestThatTicketParking : StringSpec({
         StubHorloge().now() shouldBe StubHorloge().now()
     }
 
+    "testons juste l'horloge' fake" {
+        val horlogeUnique = FakeHorloge()
+        horlogeUnique.now() shouldBeLessThan  horlogeUnique.now()
+    }
+
     "Deux tickets sont émis séquentiellement" {
         // Arrange
         val horlogeUnique = FakeHorloge()
