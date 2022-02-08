@@ -38,7 +38,7 @@ class Ticket2(val immatriculation: String) {
 
 
 class Ticket3(val immatriculation: String) {
-    private var horlogeExterne: Horloge? = null
+    private var horlogeExterne: Horloge = HorlogeExterne()  // valeur par défaut
     var dateInterne: LocalDateTime? = null
     val horodatage: LocalDateTime?
         get() {
@@ -52,11 +52,7 @@ class Ticket3(val immatriculation: String) {
         //    dateInterne = LocalDateTime.now()
     }
 
-    fun environementDeTest(actif: Boolean) {
-        if (actif)
-            horlogeExterne = HorlogeExterne()
-        else
+    fun environementDeTest() {
             horlogeExterne = StubHorloge()
-
     }
 }
