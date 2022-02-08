@@ -35,3 +35,28 @@ class Ticket2(val immatriculation: String) {
         this.estEnCoursDeTest = actif
     }
 }
+
+
+class Ticket3(val immatriculation: String) {
+    private var horlogeExterne: Horloge? = null
+    var dateInterne: LocalDateTime? = null
+    val horodatage: LocalDateTime?
+        get() {
+            return dateInterne
+        }
+
+    fun imprime() {
+        //   if (estEnCoursDeTest)
+        dateInterne = horlogeExterne.now()   // LocalDateTime.MIN
+        // else
+        //    dateInterne = LocalDateTime.now()
+    }
+
+    fun environementDeTest(actif: Boolean) {
+        if (actif)
+            horlogeExterne = HorlogeExterne()
+        else
+            horlogeExterne = StubHorloge()
+
+    }
+}
