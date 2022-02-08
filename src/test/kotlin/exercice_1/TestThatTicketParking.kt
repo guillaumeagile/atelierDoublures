@@ -46,7 +46,7 @@ class TestThatTicketParking : StringSpec({
 
     "un flag de test" {
         // Arrange
-        val ticket = Ticket(immatriculation = "AA-000-XX")
+        val ticket = Ticket2(immatriculation = "AA-000-XX")
 
         // Act
         ticket.environementDeTest(actif=true)
@@ -55,6 +55,10 @@ class TestThatTicketParking : StringSpec({
         // Assert
         ticket.horodatage shouldBe LocalDateTime.MIN
     }
+    // conclusion: est ce une bonne chose de modifier le code de prod pour faire passer le test?
+    // conclusion bis: le code ne doit pas bouger si on est en mode test ou en mode prod
+
+    // ce qui change, c'est la facon de retourner le temps: il faut un temps de test, et un temps de prod
 
 
 //    "Maitrisons le temps" {
