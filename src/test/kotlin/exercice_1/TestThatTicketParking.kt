@@ -95,4 +95,20 @@ class TestThatTicketParking : StringSpec({
         StubHorloge().now() shouldBe StubHorloge().now()
     }
 
+    "Deux tickets sont émis séquentiellement" {
+        // Arrange
+        val horlogeUnique = FakeHorloge()
+        val ticket1 = Ticket4(immatriculation = "AA-000-XX", horlogeExterne =  horlogeUnique)
+        val ticket2 = Ticket4(immatriculation = "AA-000-XX", horlogeExterne = horlogeUnique )
+
+        // Act
+        ticket1.imprime() // Ici le temps est  uniquement obtenu au sein de cette méthode
+        ticket2.imprime()
+
+        // Assert
+        ticket1.horodatage!! shouldBeLessThan  ticket2.horodatage!!
+    }
+
+
+
 })
