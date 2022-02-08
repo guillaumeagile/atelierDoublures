@@ -1,7 +1,9 @@
 package exercice_1
 
 import io.kotest.core.spec.style.StringSpec
+import io.kotest.matchers.comparables.shouldBeLessThan
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import java.time.LocalDateTime
 
 class TestThatTicketParking : StringSpec({
@@ -73,5 +75,24 @@ class TestThatTicketParking : StringSpec({
         ticket.horodatage shouldBe StubHorloge().now()
     }
 
+    "Testons le tout avec le temps en production" {
+        // Arrange
+        val ticket = Ticket4(immatriculation = "AA-000-XX", horlogeExterne = HorlogeExterne() )
+
+        // Act
+        ticket.imprime() // Ici le temps est  uniquement obtenu au sein de cette méthode
+        // nous sommes les maitres du temps dans le Stub
+
+        // Assert
+        ticket.horodatage!! shouldBeLessThan  HorlogeExterne().now()
+    }
+
+    "testons juste l'horloge' en production" {
+        HorlogeExterne().now() shouldNotBe HorlogeExterne().now()
+    }
+
+    "testons juste l'horloge de stub" {
+        StubHorloge().now() shouldBe StubHorloge().now()
+    }
 
 })

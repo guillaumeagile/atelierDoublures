@@ -4,7 +4,7 @@ import java.time.LocalDateTime
 
 class HorlogeExterne : Horloge {
    override  fun now(): LocalDateTime {
-        TODO("Not yet implemented")
+       return LocalDateTime.now()
     }
 }
 
