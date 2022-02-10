@@ -25,10 +25,10 @@ class Ticket2(val immatriculation: String) {
         }
 
     fun imprime() {
-        if (estEnCoursDeTest)
-            dateInterne = LocalDateTime.MIN
-        else
-            dateInterne = LocalDateTime.now()
+        dateInterne = when {
+            estEnCoursDeTest -> LocalDateTime.MIN
+            else -> LocalDateTime.now()
+        }
     }
 
     fun environementDeTest(actif: Boolean) {

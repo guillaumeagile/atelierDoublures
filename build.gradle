@@ -1,7 +1,7 @@
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 buildscript {
-    ext.kotlin_version = '1.5.10'
+    ext.kotlin_version = '1.6.10'
     repositories {
         mavenCentral()
     }
@@ -23,9 +23,9 @@ repositories {
 }
 
 ext {
-    slf4jVersion = "1.7.26"
+    slf4jVersion = '1.7.35'
     assertjVersion = "3.12.2"
-    kotestVersion = "4.6.3"
+    kotestVersion = '5.1.0'
 }
 
 
@@ -53,6 +53,7 @@ test {
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
     kotlinOptions.freeCompilerArgs = ["-Xallow-result-return-type"]
+
 
 
 }
