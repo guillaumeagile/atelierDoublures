@@ -1,5 +1,6 @@
 package exercice_1
 
+import exercice_1.behaviors.Horloge
 import java.time.LocalDateTime
 
 class HorlogeExterne : Horloge {
@@ -8,13 +9,3 @@ class HorlogeExterne : Horloge {
     }
 }
 
-interface Horloge {
-    fun now(): LocalDateTime
-}
-
-class StubHorloge : Horloge
-{
-    override fun now(): LocalDateTime {
-      return LocalDateTime.MAX
-    }
-}

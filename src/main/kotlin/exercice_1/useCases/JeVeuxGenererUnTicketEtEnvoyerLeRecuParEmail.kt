@@ -1,6 +1,6 @@
 package exercice_1.useCases
 
-import exercice_1.ServiceEmail
+import exercice_1.services.ServiceEmail
 import exercice_1.TicketQuiInvoqueUnServiceEmail
 
 class JeVeuxGenererUnTicketEtEnvoyerLeRecuParEmail {

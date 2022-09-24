@@ -1,8 +1,11 @@
 package exercice_1
 
+import exercice_1.behaviors.Horloge
 import java.time.LocalDateTime
 
-class Ticket(val immatriculation: String,) {
+class Ticket4(val immatriculation: String,
+               val horlogeExterne: Horloge = HorlogeExterne()
+) {
     var dateInterne: LocalDateTime? = null
     val horodatage: LocalDateTime?
         get() {
@@ -10,8 +13,6 @@ class Ticket(val immatriculation: String,) {
         }
 
     fun imprime() {
-       dateInterne = LocalDateTime.now()
+        dateInterne = horlogeExterne.now()
     }
 }
-
-

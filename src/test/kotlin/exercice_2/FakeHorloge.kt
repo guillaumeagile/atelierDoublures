@@ -1,5 +1,6 @@
-package exercice_1
+package exercice_2
 
+import exercice_1.behaviors.Horloge
 import java.time.LocalDateTime
 
 class FakeHorloge : Horloge {

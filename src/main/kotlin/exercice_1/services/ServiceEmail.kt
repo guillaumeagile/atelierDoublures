@@ -1,5 +1,6 @@
-package exercice_1
+package exercice_1.services
 
+import exercice_1.IDoublureEmail
 import java.util.*
 import javax.mail.*
 import javax.mail.internet.InternetAddress

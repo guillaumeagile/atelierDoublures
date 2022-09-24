@@ -2,7 +2,7 @@ package exercice_1
 
 import java.time.LocalDateTime
 
-class Ticket(val immatriculation: String,) {
+class Ticket1(val immatriculation: String, val horloge: LocalDateTime) {
     var dateInterne: LocalDateTime? = null
     val horodatage: LocalDateTime?
         get() {
@@ -10,7 +10,8 @@ class Ticket(val immatriculation: String,) {
         }
 
     fun imprime() {
-       dateInterne = LocalDateTime.now()
+//        dateInterne = LocalDateTime.now()
+        dateInterne = horloge
     }
 }
 

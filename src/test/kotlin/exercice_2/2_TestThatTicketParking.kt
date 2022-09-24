@@ -1,50 +1,14 @@
-package exercice_1
+package exercice_2
 
+import exercice_1.*
+import exercice_1.services.StubHorloge
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.comparables.shouldBeLessThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import java.time.LocalDateTime
 
-class TestThatTicketParking : StringSpec({
-
-//    "Test vraiment peu fiable => test fragile" {
-//        // Arrange
-//        val ticket = Ticket(immatriculation = "AA-000-XX")
-//
-//        // Act
-//        ticket.imprime() // Ici le temps est probablement calculé quelque au sein de cette méthode
-//        // Et si nous pouvions être les maitres du temps ?
-//
-//        // Assert
-//        ticket.horodatage shouldBe LocalDateTime.now()
-//    }
-
-
-    //premier pas vers un contrôle du temps
-    "Maitrisons le temps, heure fixe sur MIN" {
-        // Arrange
-        val ticket = Ticket(immatriculation = "AA-000-XX", horloge = LocalDateTime.MIN)
-
-        // Act
-        ticket.imprime() // Ici le temps est probablement calculé quelque au sein de cette méthode
-        // Et si nous pouvions être les maitres du temps ?
-
-        // Assert
-        ticket.horodatage shouldBe LocalDateTime.MIN
-    }
-
-    // conclusion partielle,
-    // mais on du changer notre code de prod
-    // çà ne fait plus le taf attendu
-//    fun imprime() {
-//        dateInterne = LocalDateTime.now()
-//        dateInterne = horloge
-//    }
-    // on veut pouvoir garder l'appel sur une horloge avec un now()
-    // est-ce quelqu'un a une idée ?
-    // si on créé une objet respectant ce contrat ?
-
+class `2_TestThatTicketParking` : StringSpec({
 
     "un flag de test" {
         // Arrange
@@ -63,7 +27,7 @@ class TestThatTicketParking : StringSpec({
     // ce qui change, c'est la facon de retourner le temps: il faut un temps de test, et un temps de prod
 
 
-    "Maitrisons le temps" {
+    "Maitrisons le temps, sans toucher au métier" {
         // Arrange
         val ticket = Ticket4(immatriculation = "AA-000-XX", horlogeExterne = StubHorloge() )
 
@@ -85,22 +49,24 @@ class TestThatTicketParking : StringSpec({
 
         // Assert
         ticket.horodatage!! shouldBeLessThan  HorlogeExterne().now()
+        // le test est fragile mais il fonctionne
     }
 
-    "testons juste l'horloge' en production" {
+    "Isolons et testons juste l'horloge en production" {
         HorlogeExterne().now() shouldNotBe HorlogeExterne().now()
     }
 
-    "testons juste l'horloge de stub" {
+    "Pour être sûr que le stub se comporte bien, testons juste l'horloge de stub" {
         StubHorloge().now() shouldBe StubHorloge().now()
+        //pour cette fausse horloge, le temps ne bouge pas
     }
 
-    "testons juste l'horloge' fake" {
+    "Pour une meilleure simulation du comportement, testons une horloge fake plus évoluée" {
         val horlogeUnique = FakeHorloge()
         horlogeUnique.now() shouldBeLessThan  horlogeUnique.now()
     }
 
-    "Deux tickets sont émis séquentiellement" {
+    "Avec l'horloge fake, il est facile de tester que Deux tickets sont émis séquentiellement" {
         // Arrange
         val horlogeUnique = FakeHorloge()
         val ticket1 = Ticket4(immatriculation = "AA-000-XX", horlogeExterne =  horlogeUnique)
@@ -113,7 +79,5 @@ class TestThatTicketParking : StringSpec({
         // Assert
         ticket1.horodatage!! shouldBeLessThan  ticket2.horodatage!!
     }
-
-
 
 })
