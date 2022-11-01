@@ -1,7 +1,7 @@
-package exercice_1.useCases
+package anti_seche.useCases
 
-import exercice_1.services.ServiceEmail
-import exercice_1.TicketQuiInvoqueUnServiceEmail
+import anti_seche.services.ServiceEmail
+import anti_seche.TicketQuiInvoqueUnServiceEmail
 
 class JeVeuxGenererUnTicketEtEnvoyerLeRecuParEmail {
     fun main() {

@@ -1,6 +1,9 @@
 
-package exercice_1
+package exercice_0
 
+import anti_seche.IDoublureEmail
+import anti_seche.TicketAvecMail
+import anti_seche.TicketQuiInvoqueUnServiceEmail
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 

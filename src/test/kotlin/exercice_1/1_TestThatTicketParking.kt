@@ -1,11 +1,8 @@
-package exercice_2
+package exercice_1
 
-import exercice_1.*
-import exercice_1.services.StubHorloge
+import anti_seche.Ticket1
 import io.kotest.core.spec.style.StringSpec
-import io.kotest.matchers.comparables.shouldBeLessThan
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.shouldNotBe
 import java.time.LocalDateTime
 
 class `1_TestThatTicketParking` : StringSpec({
@@ -15,9 +12,10 @@ class `1_TestThatTicketParking` : StringSpec({
     "Maitrisons le temps, heure fixe sur MIN".config(enabled=false) {
         // Arrange
         val ticket = Ticket1(immatriculation = "AA-000-XX", horloge = LocalDateTime.MIN)
+        ticket.Payer(0)
 
         // Act
-        ticket.imprime() // Ici le temps est probablement calculé quelque au sein de cette méthode
+        ticket.creer() // Ici le temps est probablement calculé quelque au sein de cette méthode
         // Et si nous pouvions être les maitres du temps ?
 
         // Assert

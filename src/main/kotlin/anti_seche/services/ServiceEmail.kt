@@ -1,6 +1,6 @@
-package exercice_1.services
+package anti_seche.services
 
-import exercice_1.IDoublureEmail
+import anti_seche.IDoublureEmail
 import java.util.*
 import javax.mail.*
 import javax.mail.internet.InternetAddress

@@ -1,38 +1,22 @@
-package exercice_2
+package exercice_1
 
-import exercice_1.*
-import exercice_1.services.StubHorloge
+import anti_seche.`Ticket4🤞`
+import exercice_0.*
+import anti_seche.services.StubHorloge
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.comparables.shouldBeLessThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
-import java.time.LocalDateTime
 
-class `2_TestThatTicketParking` : StringSpec({
-
-    "un flag de test" {
-        // Arrange
-        val ticket = Ticket2(immatriculation = "AA-000-XX")
-
-        // Act
-        ticket.environementDeTest(actif=true)
-        ticket.imprime()
-
-        // Assert
-        ticket.horodatage shouldBe LocalDateTime.MIN
-    }
-    // conclusion: est ce une bonne chose de modifier le code de prod pour faire passer le test?
-    // conclusion bis: le code ne doit pas bouger si on est en mode test ou en mode prod
-
-    // ce qui change, c'est la facon de retourner le temps: il faut un temps de test, et un temps de prod
-
+class `4_TestThatTicketParking` : StringSpec({
 
     "Maitrisons le temps, sans toucher au métier" {
         // Arrange
-        val ticket = Ticket4(immatriculation = "AA-000-XX", horlogeExterne = StubHorloge() )
+        val ticket = `Ticket4🤞`(immatriculation = "AA-000-XX", horlogeExterne = StubHorloge() )
+        ticket.Payer(1)
 
         // Act
-        ticket.imprime() // Ici le temps est  uniquement obtenu au sein de cette méthode
+        ticket.creer() // Ici le temps est  uniquement obtenu au sein de cette méthode
         // nous sommes les maitres du temps dans le Stub
 
         // Assert
@@ -41,10 +25,10 @@ class `2_TestThatTicketParking` : StringSpec({
 
     "Testons le tout avec le temps en production" {
         // Arrange
-        val ticket = Ticket4(immatriculation = "AA-000-XX", horlogeExterne = HorlogeExterne() )
+        val ticket = `Ticket4🤞`(immatriculation = "AA-000-XX", horlogeExterne = HorlogeExterne() )
 
         // Act
-        ticket.imprime() // Ici le temps est  uniquement obtenu au sein de cette méthode
+        ticket.creer() // Ici le temps est  uniquement obtenu au sein de cette méthode
         // nous sommes les maitres du temps dans le Stub
 
         // Assert
@@ -69,12 +53,12 @@ class `2_TestThatTicketParking` : StringSpec({
     "Avec l'horloge fake, il est facile de tester que Deux tickets sont émis séquentiellement" {
         // Arrange
         val horlogeUnique = FakeHorloge()
-        val ticket1 = Ticket4(immatriculation = "AA-000-XX", horlogeExterne =  horlogeUnique)
-        val ticket2 = Ticket4(immatriculation = "AA-000-XX", horlogeExterne = horlogeUnique )
+        val ticket1 = `Ticket4🤞`(immatriculation = "AA-000-XX", horlogeExterne =  horlogeUnique)
+        val ticket2 = `Ticket4🤞`(immatriculation = "AA-000-XX", horlogeExterne = horlogeUnique )
 
         // Act
-        ticket1.imprime() // Ici le temps est  uniquement obtenu au sein de cette méthode
-        ticket2.imprime()
+        ticket1.creer() // Ici le temps est  uniquement obtenu au sein de cette méthode
+        ticket2.creer()
 
         // Assert
         ticket1.horodatage!! shouldBeLessThan  ticket2.horodatage!!

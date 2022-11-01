@@ -1,6 +1,6 @@
-package exercice_1.services
+package anti_seche.services
 
-import exercice_1.behaviors.Horloge
+import anti_seche.behaviors.Horloge
 import java.time.LocalDateTime
 
 class StubHorloge : Horloge

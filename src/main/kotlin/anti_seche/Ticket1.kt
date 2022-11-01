@@ -1,4 +1,4 @@
-package exercice_1
+package anti_seche
 
 import java.time.LocalDateTime
 
@@ -9,9 +9,13 @@ class Ticket1(val immatriculation: String, val horloge: LocalDateTime) {
             return dateInterne
         }
 
-    fun imprime() {
+    fun creer() {
 //        dateInterne = LocalDateTime.now()
         dateInterne = horloge
+    }
+
+    fun Payer(i: Int) {
+
     }
 }
 

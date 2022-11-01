@@ -1,6 +1,6 @@
-package exercice_1
+package exercice_0
 
-import exercice_1.behaviors.Horloge
+import anti_seche.behaviors.Horloge
 import java.time.LocalDateTime
 
 class HorlogeExterne : Horloge {

@@ -1,4 +1,4 @@
-package exercice_1
+package anti_seche
 
 class TicketQuiInvoqueUnServiceEmail(val immatriculation: String, val serviceEmail: IDoublureEmail) {
     fun imprime() {
