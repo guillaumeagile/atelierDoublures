@@ -22,8 +22,4 @@ class `2_TestThatTicketParking` : StringSpec({
     // conclusion bis: le code ne doit pas bouger si on est en mode test ou en mode prod
 
     // ce qui change, c'est la facon de retourner le temps: il faut un temps de test, et un temps de prod
-
-
-
-
 })
