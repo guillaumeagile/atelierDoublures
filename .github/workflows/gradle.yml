@@ -27,9 +27,6 @@ jobs:
       - name: run tests
         run: ./gradlew check
 
-      - name: deploy snapshot
-        run: ./gradlew publish
-
       - name: bundle the build report
         if: failure()
         run: find . -type d -name 'reports' | zip -@ -r build-reports.zip
