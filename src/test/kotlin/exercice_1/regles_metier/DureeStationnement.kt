@@ -6,7 +6,7 @@ import io.kotest.matchers.shouldBe
 
 class DureeStationnement : StringSpec({
 
-    "Si on paye des cacahuetes, on  a des singes".config(enabled=true) {
+    "Si on paye des cacahuetes, on  a des singes".config(enabled=false) {
         // Arrange
         val ticket = Ticket(immatriculation = "AA-000-XX")
 
