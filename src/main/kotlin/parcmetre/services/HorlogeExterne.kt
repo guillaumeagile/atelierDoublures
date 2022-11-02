@@ -1,6 +1,6 @@
 package exercice_0
 
-import anti_seche.behaviors.Horloge
+import parcmetre.behaviors.Horloge
 import java.time.LocalDateTime
 
 class HorlogeExterne : Horloge {
