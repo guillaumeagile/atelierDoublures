@@ -4,7 +4,7 @@ import parcmetre.behaviors.Horloge
 import java.time.LocalDateTime
 
 class HorlogeExterne : Horloge {
-   override  fun now(): LocalDateTime {
+   override  fun maintenant(): LocalDateTime {
        return LocalDateTime.now()
     }
 }
