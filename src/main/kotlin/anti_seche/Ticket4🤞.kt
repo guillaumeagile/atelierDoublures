@@ -14,10 +14,6 @@ class `Ticket4🤞`(val immatriculation: String,
         }
 
     fun creer() {
-        dateInterne = horlogeExterne.now()
-    }
-
-    fun Payer(i: Int) {
-
+        dateInterne = horlogeExterne.maintenant()
     }
 }

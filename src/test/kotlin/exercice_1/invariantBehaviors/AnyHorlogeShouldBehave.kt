@@ -9,12 +9,15 @@ import io.kotest.matchers.comparables.shouldBeLessThan
 import io.kotest.matchers.shouldNotBe
 
 fun horlogTestFactory(horloge: Horloge) = funSpec {
-    test("Pour une meilleure simulation du comportement, toute horloge doit avancer dans le temps") {
-        horloge.now() shouldBeLessThan horloge.now()
+    // nous avons une interface, et maintenant nous avons déterminé le comportement de cet interface
+    // on va aller plus loin, on va implémenter ce comportement par défaut dans l'interface (merci Kotlin)
+
+    test("Toute horloge doit avancer dans le temps") {
+        horloge.maintenant() shouldBeLessThan horloge.maintenant()
     }
 
    test( "on est d'accord, c'est la même chose que le test précédent") {
-        HorlogeSysteme().now() shouldNotBe HorlogeSysteme().now()
+        HorlogeSysteme().maintenant() shouldNotBe HorlogeSysteme().maintenant()
     }
 }
 

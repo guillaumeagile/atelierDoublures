@@ -4,7 +4,7 @@ import anti_seche.behaviors.Horloge
 import java.time.LocalDateTime
 
 class HorlogeSysteme : Horloge {
-   override  fun now(): LocalDateTime {
+   override  fun maintenant(): LocalDateTime {
        return LocalDateTime.now()
     }
 }

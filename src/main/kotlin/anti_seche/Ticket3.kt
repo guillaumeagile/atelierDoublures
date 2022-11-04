@@ -10,13 +10,9 @@ class Ticket3(val immatriculation: String) {
     private var horlogeExterne: Horloge = HorlogeSysteme()  // point de départ vers une abstraction
 
     var dateInterne: LocalDateTime? = null
-    val horodatage: LocalDateTime?
-        get() {
-            return dateInterne
-        }
 
     fun imprime() {
-        dateInterne = horlogeExterne.now()
+        dateInterne = horlogeExterne.maintenant()
     }
 
     fun environementDeTest() {

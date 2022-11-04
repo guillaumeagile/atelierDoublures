@@ -5,7 +5,7 @@ import java.time.LocalDateTime
 
 class StubHorloge : Horloge
 {
-    override fun now(): LocalDateTime {
+    override fun maintenant(): LocalDateTime {
       return LocalDateTime.MAX
     }
 }
