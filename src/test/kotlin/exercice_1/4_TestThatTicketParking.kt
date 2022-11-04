@@ -36,9 +36,6 @@ class `4_TestThatTicketParking` : StringSpec({
         // le test est fragile mais il fonctionne
     }
 
-    "Isolons et testons juste l'horloge en production" {
-        HorlogeSysteme().now() shouldNotBe HorlogeSysteme().now()
-    }
 
     "Pour être sûr que le stub se comporte bien, testons juste l'horloge de stub" {
         StubHorloge().now() shouldBe StubHorloge().now()
@@ -46,7 +43,7 @@ class `4_TestThatTicketParking` : StringSpec({
     // ceci est juste pour démontrer la différence entre Stub et Fake / on ne fera pas ceci en production
     }
 
-    // les tessts de la FakeHorloge et de la HorlogeSysteme étant identiques,
+    // les tests de la FakeHorloge et de la HorlogeSysteme étant identiques,
     // ils sont maintenant dans exercice_1/invariantBehaviors/AnyHorlogeShouldBehave.kt
 
     "Avec l'horloge fake, il est facile de tester que Deux tickets sont émis séquentiellement" {
