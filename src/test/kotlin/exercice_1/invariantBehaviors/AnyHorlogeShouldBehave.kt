@@ -9,26 +9,26 @@ import io.kotest.matchers.comparables.shouldBeLessThan
 import io.kotest.matchers.shouldNotBe
 import java.time.LocalDateTime
 
-fun horlogTestFactory(horloge: Horloge) = funSpec {
-    // nous avons une interface, et maintenant nous avons déterminé le comportement de cet interface
+fun horlogTestFactory(horloge: Horloge) = funSpec {  // ceci est une factory de tests
+
+    test("Toute horloge doit avancer dans le temps, version triviale") {
+        horloge.maintenant() shouldNotBe horloge.maintenant()
+        // n'a d'interêt que pour l'exercice
+    }
+    // comme nous avons une interface, nous avons déterminé le comportement de cette interface
+
     // on va aller plus loin, on va implémenter ce comportement par défaut dans l'interface (merci Kotlin)
 
     test("Toute horloge doit avancer dans le temps") {
-        //on utilise le comportement codé par défaut dans l'interface, comme ca tout est au même endroit
+        // on utilise le comportement codé par défaut dans l'interface, comme ca tout est au même endroit
         horloge.lHorlologeDoitAvancerDansLeTemps(horloge) { date1, date2 -> date1 shouldBeLessThan date2 }
-        //ici ce n'est plus que de la tuyauterie de test...  on s'en fout!
-        //ou presque, parce que les assertions restent ici, car je veux pas que le code de prod contiennent des refs
-        //au framework de test :(
-        //on ira coder le comportement dans l'interface
-        //on verra l'utilité dans l'exerice 3 et 4
-    }
-
-    test("on est d'accord, c'est la même chose que le test précédent") {
-        horloge.maintenant() shouldNotBe horloge.maintenant()
-        //version triviale, qui n'a d'interêt que pour l'exercice
+        // les assertions restent ici, car on ne veut pas que le code de prod contiennent des refs
+        // au framework de test
+        // on ira contraindre le comportement dans l'interface
     }
 }
 
+// >>>>>>>>>> INJECTION DE DEPENDANCE DANS LES TESTS AVEC KOTLIN/funSpec <<<<<<<<<<<<
 class FakeHorlogeTest : FunSpec({
     include(horlogTestFactory(horloge = FakeHorloge()))
 })
