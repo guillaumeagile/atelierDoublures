@@ -14,11 +14,13 @@ Vous pourrez, par exemple, comparer en situation réaliste, l’usage d’un fak
 - En produisant (en TDD, toujours) un code emprunt de situations réelles : dialogue avec une base de données, un service web, une librairie générant des uuid… comme exemple couramment rencontrés.
 - Apprendre en s’amusant, en collaborant afin de produire, tous ensemble, le code mettant en oeuvre ces doublures de tests (Session Mob Programming). 
 
+## Don't use mocks
 
+at commit 5cce910, we show how to test Fake and Implementation with the same set of tests, so that we ensure the behavior is always the same, no surprise when injecting the Implementation in Production (instead of the fake/stub).
 
-A dire plutôt sur la fin... 
+## At the end
 - écouter les tests, si ces derniers sont compliqué ou difficile à écrire, ou sont fragile alors il y a certainement un 
 problème de design. Trop de resposabilités ? Trop de dépendances ? Par exemple Ticket et horodatage = trop de responsabilités ce n'est pas à lui de déterminer l'origine du temps, 
-c'est fonction impure elle dépend de l'état du système et de plus elle possède une dépendance extern, ici l'horloge du système.
+c'est fonction impure elle dépend de l'état du système et de plus elle possède une dépendance externe, ici l'horloge du système.
 
 
