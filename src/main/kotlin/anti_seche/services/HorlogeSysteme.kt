@@ -3,7 +3,7 @@ package exercice_0
 import anti_seche.behaviors.Horloge
 import java.time.LocalDateTime
 
-class HorlogeSysteme : Horloge {
+class HorlogeSystème : Horloge {
    override  fun maintenant(): LocalDateTime {
        return LocalDateTime.now()
        //return LocalDateTime.MAX

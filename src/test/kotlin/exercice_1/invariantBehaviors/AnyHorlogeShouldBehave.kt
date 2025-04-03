@@ -1,19 +1,19 @@
 package exercice_1.invariantBehaviors
 
 import anti_seche.behaviors.Horloge
-import exercice_0.HorlogeSysteme
-import exercice_1.FakeHorloge
+import exercice_0.HorlogeSystème
+
+import exercice_1.DoublureHorloge
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.core.spec.style.funSpec
 import io.kotest.matchers.comparables.shouldBeLessThan
 import io.kotest.matchers.shouldNotBe
-import java.time.LocalDateTime
 
 fun horlogTestFactory(horloge: Horloge) = funSpec {  // ceci est une factory de tests
 
     test("Toute horloge doit avancer dans le temps, version triviale") {
         horloge.maintenant() shouldNotBe horloge.maintenant()
-        // n'a d'interêt que pour l'exercice
+
     }
     // comme nous avons une interface, nous avons déterminé le comportement de cette interface
 
@@ -30,11 +30,11 @@ fun horlogTestFactory(horloge: Horloge) = funSpec {  // ceci est une factory de 
 
 // >>>>>>>>>> INJECTION DE DEPENDANCE DANS LES TESTS AVEC KOTLIN/funSpec <<<<<<<<<<<<
 class FakeHorlogeTest : FunSpec({
-    include(horlogTestFactory(horloge = FakeHorloge()))
+    include(horlogTestFactory(horloge = DoublureHorloge()))
 })
 
 class HorlogeSystemeTest : FunSpec({
-    include(horlogTestFactory(horloge = HorlogeSysteme()))
+    include(horlogTestFactory(horloge = HorlogeSystème()))
 })
 
 

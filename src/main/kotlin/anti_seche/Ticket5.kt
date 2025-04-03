@@ -1,8 +1,8 @@
 package anti_seche
 
-import anti_seche.services.StubHorloge
+import anti_seche.services.FausseHorloge
 
-class Ticket5(immatriculation: String, horlogeExterne: StubHorloge) {
+class Ticket5(immatriculation: String, horlogeExterne: FausseHorloge) {
     fun payer(i: Int) {
         TODO("Not yet implemented")
     }
